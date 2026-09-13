@@ -348,9 +348,13 @@ form{display:grid;gap:14px}
 footer{padding:70px 0 40px}
 .foot{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;border-top:1px solid var(--line);padding-top:34px}
 .foot img{height:52px;width:auto}
-.foot p{font-size:12.5px;color:var(--muted);max-width:560px;line-height:1.6}
-.foot .ct{text-align:right;font-size:13.5px}
-.foot .ct a{display:block;font-family:var(--display);font-size:18px;color:var(--ink);font-weight:500}
+.foot p{font-family:var(--body);font-size:13.5px;color:var(--muted);max-width:560px;line-height:1.55}
+.foot .ct{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
+.foot .ct .eyebrow{margin:0}
+.foot .ct a{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-size:clamp(24px,2.6vw,30px);font-weight:500;letter-spacing:-.02em;line-height:1.1;color:var(--ink);transition:color .2s}
+.foot .ct a svg{width:20px;height:20px;color:var(--azure)}
+.foot .ct a:hover{color:var(--azure)}
+.foot .ct .cities{font-family:var(--display);font-size:14px;color:var(--muted)}
 
 .mbar{display:none}
 
@@ -396,7 +400,7 @@ footer{padding:70px 0 40px}
   .two{grid-template-columns:1fr}
   .faq details p{padding-right:0}
   .foot{flex-direction:column}
-  .foot .ct{text-align:left}
+  .foot .ct{text-align:left;align-items:flex-start}
   .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:50;transition:transform .3s,opacity .3s}
   .mbar a{flex:1;justify-content:center;height:52px;border-radius:14px;font-size:15px;box-shadow:0 12px 30px rgba(8,19,69,.35)}
   .mbar.hide{transform:translateY(120%);opacity:0}
@@ -590,7 +594,9 @@ footer{padding:70px 0 40px}
   footer{padding:36px 0 84px}
   .foot{padding-top:20px;gap:14px}
   .foot img{height:40px}
-  .foot p{font-size:11px;margin-top:10px!important}
+  .foot p{font-size:12px;margin-top:10px!important}
+  .foot .ct a{font-size:24px}
+  .foot .ct .cities{font-size:13px}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -628,7 +634,7 @@ footer{padding:70px 0 40px}
     <div class="stats">
       <div class="glass rv d1">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg></div>
-        <b class="num">+<span data-count="2">0</span> pts</b><span>Tipo de cambio mejor que el de tu banco</span>
+        <b class="num">+<span data-count="2">2</span> pts</b><span>Tipo de cambio mejor que el de tu banco</span>
       </div>
       <div class="glass rv d2">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/><path d="M19 5L5 19"/></svg></div>
@@ -636,7 +642,7 @@ footer{padding:70px 0 40px}
       </div>
       <div class="glass rv d3">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg></div>
-        <b class="num">&lt; <span data-count="24">0</span> h</b><span>Pesos en tu cuenta vía SPEI</span>
+        <b class="num">&lt; <span data-count="24">24</span> h</b><span>Pesos en tu cuenta vía SPEI</span>
       </div>
       <div class="glass rv d4">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div>
@@ -945,7 +951,7 @@ footer{padding:70px 0 40px}
       <div>
         <h2>Cotiza tu<span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><br>operación hoy</h2>
         <p>Cuéntanos cómo cobras hoy. Al enviar se abre WhatsApp con tus datos ya escritos, para que tu asesor te responda con la cotización y no tengas que repetir nada.</p>
-        <div class="wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>WhatsApp 998 301 6102</div>
+        <div class="wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>WhatsApp 998 340 7981</div>
       </div>
     </div>
 
@@ -986,7 +992,11 @@ footer{padding:70px 0 40px}
         <img src="assets/logo-27.png" alt="Proyecto Twenty Seven Cancún" width="718" height="312">
         <p style="margin-top:16px">Twenty Seven Financial Services es una mesa de operaciones que presta servicios administrativos de liquidez, respaldada operacionalmente por Proyecto Twenty Seven Cancún. No es una institución financiera, no capta recursos del público y solo opera con cuentas del mismo titular.</p>
       </div>
-      <div class="ct">Executive desk<a href="https://wa.me/529983016102" target="_blank" rel="noopener">998 301 6102</a>Cancún · Playa del Carmen · Riviera Maya</div>
+      <div class="ct">
+        <span class="eyebrow">Executive desk</span>
+        <a href="https://wa.me/529983407981" target="_blank" rel="noopener" class="num"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>998 340 7981</a>
+        <span class="cities">Cancún · Playa del Carmen · Riviera Maya</span>
+      </div>
     </div>
   </footer>
 </div>
@@ -1032,6 +1042,7 @@ footer{padding:70px 0 40px}
     onView(el, function(){
       if(reduce){ el.textContent = to; return; }
       var t0 = null;
+      el.textContent = "0";
       function step(t){ if(!t0) t0 = t; var p = Math.min((t - t0) / 1400, 1);
         el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if(p < 1) requestAnimationFrame(step); }
       requestAnimationFrame(step);
@@ -1193,7 +1204,7 @@ footer{padding:70px 0 40px}
   });
 
   /* ---------- envío a WhatsApp ---------- */
-  var WA = "529983016102", form = $("lead"), req = ["nombre","empresa","giro","monto","pago","ciudad"];
+  var WA = "529983407981", form = $("lead"), req = ["nombre","empresa","giro","monto","pago","ciudad"];
   function clear(e){ var f = e.target.closest(".f"); if(f) f.classList.remove("bad"); }
   form.addEventListener("input", clear);
   form.addEventListener("change", clear);
