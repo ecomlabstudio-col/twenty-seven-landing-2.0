@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twenty Seven · Recibe tus dólares en pesos, con factura deducible</title>
+<meta name="description" content="Mesa de operaciones en Cancún para empresas que cobran desde Estados Unidos: tipo de cambio dos puntos mejor que tu banco, cero comisiones, SPEI en menos de 24 horas y CFDI 4.0 deducible.">
+<link rel="icon" href="assets/logo-27.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1238;--indigo:#2F3163;--royal:#3F5FA3;--azure:#2272B4;--sky:#5AA7E6;
+  --deep:#081345;--line:#E6E8F0;--muted:#6B7088;--soft:#F4F6FB;--white:#fff;--red:#C2413B;
+  --radius:22px;--wrap:1180px;
+  --display:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--white);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:-.02em;line-height:1.08}
+.num{font-variant-numeric:tabular-nums}
+
+/* aparición al hacer scroll */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}.rv.d5{transition-delay:.4s}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.top img{height:46px;width:auto}
+.top-r{display:flex;align-items:center;gap:22px}
+.top-r span{font-size:13px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;border-radius:999px;font-family:var(--display);font-weight:500;transition:transform .15s,background .2s,box-shadow .2s,color .2s}
+.btn:active{transform:scale(.98)}
+.btn-dark{background:var(--indigo);color:#fff;padding:11px 20px;font-size:14px}
+.btn-dark:hover{background:var(--deep)}
+.btn-light{background:#fff;color:var(--ink);padding:15px 26px;font-size:15px}
+.btn-light:hover{box-shadow:0 0 0 6px rgba(255,255,255,.18)}
+.btn-line{background:transparent;color:var(--ink);padding:12px 20px;font-size:14px;border:1px solid #CDD1DE}
+.btn-line:hover{border-color:var(--indigo);background:var(--soft)}
+.btn svg{width:16px;height:16px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-radius:var(--radius);color:#fff;padding:92px 32px 32px;isolation:isolate;
+  background:linear-gradient(180deg,#07113F 0%,#0F2A86 48%,#1F57C4 100%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;
+  background:
+   repeating-linear-gradient(90deg,rgba(3,8,40,.62) 0,rgba(3,8,40,.62) 3px,rgba(60,120,230,0) 16px,rgba(150,195,255,.20) 34px,rgba(60,120,230,0) 52px,rgba(3,8,40,.55) 70px),
+   repeating-linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,0) 121px,rgba(170,210,255,.14) 138px,rgba(0,0,0,0) 156px,rgba(0,0,0,0) 233px)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(ellipse 55% 42% at 50% -4%,rgba(160,200,255,.55),rgba(160,200,255,0) 70%),
+   radial-gradient(ellipse 80% 40% at 50% 110%,rgba(30,80,200,.55),rgba(30,80,200,0) 70%),
+   linear-gradient(180deg,rgba(7,17,63,0) 55%,rgba(7,17,63,.35) 100%),
+   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero .light{position:absolute;top:-30%;left:-20%;width:40%;height:160%;z-index:-1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(170,210,255,0),rgba(170,210,255,.16),rgba(170,210,255,0));transform:skewX(-12deg);animation:sweep 9s var(--ease) infinite}
+@keyframes sweep{0%{left:-45%}55%,100%{left:120%}}
+.hero-in{max-width:760px;margin:0 auto;text-align:center}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;padding:5px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.88);background:rgba(255,255,255,.04)}
+.pill i{width:6px;height:6px;border-radius:50%;background:#7FC1FF;box-shadow:0 0 10px #7FC1FF;animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.pill.dk{border-color:var(--line);color:var(--muted);background:#fff}
+.pill.dk i{background:var(--azure);box-shadow:0 0 8px var(--azure)}
+.hero h1{font-size:clamp(34px,5.4vw,60px);margin:22px 0 18px}
+.hero h1 em{font-style:normal;color:#A9CEFF}
+.hero p.sub{font-size:clamp(15px,1.6vw,17px);color:rgba(255,255,255,.78);max-width:620px;margin:0 auto}
+.hero-cta{margin:30px 0 0;display:flex;gap:18px;justify-content:center;align-items:center;flex-wrap:wrap}
+.hero-cta small{font-size:13px;color:rgba(255,255,255,.65)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:88px}
+.glass{position:relative;border-radius:16px;padding:18px 18px 20px;background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .3s var(--ease),background .3s}
+.glass:hover{transform:translateY(-3px);background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.07))}
+.glass .ic{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.45);display:grid;place-items:center;margin-bottom:26px}
+.glass .ic svg{width:14px;height:14px}
+.glass b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(28px,3.2vw,40px);letter-spacing:-.02em;line-height:1.05}
+.glass > span{display:block;font-size:13.5px;line-height:1.35;color:rgba(255,255,255,.82);margin-top:8px}
+
+/* secciones */
+section{padding:110px 0 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:34px}
+.head h2{font-size:clamp(30px,4.2vw,48px);color:var(--ink);max-width:700px}
+.head h2 .star{display:inline-block;font-size:.5em;vertical-align:super;margin-left:6px;color:var(--indigo)}
+.head p{font-size:13.5px;color:var(--muted);max-width:290px;line-height:1.5}
+.eyebrow{font-size:12.5px;color:var(--azure);font-weight:500;letter-spacing:.02em;margin-bottom:12px;display:block}
+
+/* comparativa */
+.cols{display:grid;grid-template-columns:1.1fr 1.3fr 1fr 48px;gap:20px;font-size:12px;color:var(--muted);padding-bottom:12px}
+.cols span:not(:empty)::before{content:"• ";color:#B9BDCC}
+.row{display:grid;grid-template-columns:1.1fr 1.3fr 1fr 48px;gap:20px;align-items:center;border-top:1px solid var(--line);padding:26px 0;position:relative;transition:background .25s}
+.row:hover{background:linear-gradient(90deg,rgba(244,246,251,0),var(--soft) 30%,rgba(244,246,251,0))}
+.row:last-of-type{border-bottom:1px solid var(--line)}
+.row h3{font-size:clamp(19px,2vw,24px);color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12.5px;padding:3px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.x{text-decoration:line-through;text-decoration-color:rgba(107,112,136,.5)}
+.tag.on{background:var(--azure);border-color:var(--azure);color:#fff}
+.val{font-family:var(--display);font-size:clamp(19px,2vw,23px);font-weight:500;color:var(--ink);line-height:1.2}
+.circ{width:44px;height:44px;border-radius:50%;border:1px solid #CDD1DE;display:grid;place-items:center;color:var(--ink);justify-self:end;transition:all .25s}
+.row:hover .circ{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.circ svg{width:15px;height:15px}
+.row.feat .circ{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.float-card{position:absolute;right:64px;top:50%;transform:translateY(-50%) rotate(-6deg);width:178px;pointer-events:none;animation:bob 5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(-50%) rotate(-6deg)}50%{transform:translateY(-58%) rotate(-4deg)}}
+.float-card::before{content:"";position:absolute;inset:-8px 14px 8px -14px;background:var(--azure);border-radius:14px;transform:rotate(9deg);z-index:-1}
+.float-card div{position:relative;border-radius:14px;box-shadow:0 18px 40px rgba(14,18,56,.28);background-color:#050A24;color:#fff;padding:15px 14px 36px;font-family:var(--display);font-weight:600;font-size:17px;line-height:1.02;letter-spacing:-.02em;
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,0) 0 14px,rgba(120,170,255,.16) 22px,rgba(255,255,255,0) 30px);background-size:100% 40%;background-repeat:no-repeat;background-position:bottom}
+.legend{font-size:12px;color:var(--muted);margin-top:14px}
+
+/* calculadora */
+.calc{display:grid;grid-template-columns:1.35fr 1fr;gap:14px}
+.card{border:1px solid var(--line);border-radius:20px;padding:28px;background:#fff}
+.card.soft{background:var(--soft)}
+.card h3{font-size:20px}
+.card .hint{font-size:13.5px;color:var(--muted);margin-top:4px}
+.amt{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:26px 0 8px}
+.amt label{font-size:13.5px;color:var(--muted)}
+.amt output{font-family:var(--display);font-size:clamp(30px,3.6vw,42px);font-weight:500;letter-spacing:-.02em}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;outline:none;cursor:pointer;
+  background:linear-gradient(90deg,var(--azure) 0,var(--azure) var(--p,10%),#DDE1EC var(--p,10%))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:6px solid var(--indigo);box-shadow:0 4px 14px rgba(47,49,99,.3);transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:6px solid var(--indigo)}
+.ticks{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);margin-top:8px}
+.out{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:26px}
+.out div{border-radius:14px;padding:14px 16px;background:var(--soft)}
+.out div.bad{background:#FBEFEE}
+.out div.good{background:#EAF3FB}
+.out small{display:block;font-size:12px;color:var(--muted);line-height:1.3}
+.out b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(18px,1.8vw,22px);margin-top:6px;letter-spacing:-.01em;line-height:1.1}
+.out b{white-space:nowrap}
+.out b em{font-style:normal;font-size:.6em;font-weight:400;opacity:.8}
+.out .sm{display:none}
+.out .bad b{color:var(--red)}
+.out .good b{color:var(--azure)}
+.chart{margin-top:26px}
+.chart-top{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.chart-top i{display:inline-block;width:10px;height:10px;border-radius:3px;margin:0 6px 0 14px;vertical-align:-1px}
+.bars{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;height:150px;align-items:end;border-bottom:1px solid var(--line);position:relative;background:linear-gradient(var(--line),var(--line)) 0 0/100% 1px no-repeat,linear-gradient(var(--line),var(--line)) 0 50%/100% 1px no-repeat}
+.bar{position:relative;height:0;border-radius:6px 6px 2px 2px;background:#F2C9C6;transition:height .7s var(--ease)}
+.bar span{position:absolute;left:0;right:0;bottom:0;border-radius:6px 6px 2px 2px;background:var(--red);transition:height .7s var(--ease)}
+.months{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;font-size:10.5px;color:var(--muted);text-align:center;margin-top:6px}
+.calc-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:22px;flex-wrap:wrap}
+.calc-foot p{font-size:12px;color:var(--muted);max-width:420px;line-height:1.5}
+.lq{display:grid;gap:22px;margin-top:28px}
+.lq-row small{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:8px}
+.lq-row small b{font-family:var(--display);font-weight:500;color:var(--ink);font-size:15px}
+.track{position:relative;height:38px;border-radius:10px;background:#fff;border:1px solid var(--line);overflow:hidden}
+.fill{position:absolute;top:0;bottom:0;left:0;width:0;border-radius:9px;transition:width 1.4s var(--ease),left 1.4s var(--ease)}
+.fill.bank{background:repeating-linear-gradient(135deg,#F2C9C6 0 8px,#EDB8B4 8px 16px)}
+.fill.bank::before{content:"";position:absolute;inset:0;right:auto;width:0}
+.fill.ours{background:linear-gradient(90deg,var(--indigo),var(--azure))}
+.axis{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px}
+.bigstat{margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+.bigstat b{font-family:var(--display);font-weight:500;font-size:clamp(40px,5vw,58px);letter-spacing:-.03em;line-height:1;color:var(--indigo)}
+.bigstat p{font-size:14px;color:var(--muted);margin-top:8px}
+
+/* fiscal */
+.fiscal{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:start}
+.fiscal h2{font-size:clamp(30px,4.2vw,48px)}
+.fiscal .lead{color:var(--muted);margin-top:18px;max-width:460px}
+.flow{margin-top:34px;border-radius:20px;padding:26px 22px 20px;background:linear-gradient(160deg,#0B1650,#1A2E86);color:#fff;position:relative;overflow:hidden}
+.flow-in{display:grid;grid-template-columns:1fr 70px 1fr;align-items:center}
+.doc{background:#fff;color:var(--ink);border-radius:12px;padding:14px 14px 16px;box-shadow:0 14px 30px rgba(0,0,0,.25);transform:rotate(-2deg)}
+.doc.b{transform:rotate(2deg)}
+.doc small{display:block;font-size:10.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.doc strong{display:block;font-family:var(--display);font-weight:500;font-size:16px;margin:2px 0 10px}
+.doc i{display:block;height:6px;border-radius:4px;background:#E7EAF2;margin-top:6px}
+.doc i:nth-of-type(2){width:80%}.doc i:nth-of-type(3){width:60%}
+.doc .seal{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:11px;color:var(--azure);font-weight:500}
+.doc .seal svg{width:14px;height:14px}
+.wire{position:relative;height:2px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.5) 0 6px,transparent 6px 12px)}
+.wire b{position:absolute;top:50%;left:0;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:#A9CEFF;color:#081345;display:grid;place-items:center;font-size:13px;font-family:var(--display);box-shadow:0 0 18px rgba(169,206,255,.8);animation:travel 2.8s var(--ease) infinite}
+@keyframes travel{0%{left:0;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:100%;opacity:0}}
+.flow-cap{display:flex;justify-content:space-between;margin-top:16px;font-size:12px;color:rgba(255,255,255,.7)}
+.flow-cap b{font-family:var(--display);font-weight:500;color:#fff;font-size:15px}
+.fcards{display:grid;gap:12px}
+.fcard{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:22px 24px;border-radius:18px;background:var(--soft);border:1px solid var(--line);transition:transform .3s var(--ease),border-color .3s,background .3s}
+.fcard:hover{transform:translateX(6px);border-color:#C5CBE0;background:#fff}
+.fcard .n{width:52px;height:52px;border-radius:14px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--azure)}
+.fcard .n svg{width:22px;height:22px}
+.fcard h3{font-size:20px;margin-bottom:4px}
+.fcard p{font-size:14.5px;color:var(--muted);line-height:1.55}
+.fnote{font-size:12.5px;color:var(--muted);margin-top:6px;padding-left:4px}
+
+/* proceso */
+.proc{border:1px solid var(--line);border-radius:22px;padding:30px}
+.prog{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.pstep{text-align:left;background:none;border:0;cursor:pointer;padding:0;color:var(--ink)}
+.pstep .ln{height:3px;border-radius:3px;background:var(--line);overflow:hidden;margin-bottom:16px}
+.pstep .ln i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--indigo),var(--azure))}
+.pstep.done .ln i{width:100%}
+.pstep.on .ln i{animation:grow 4s linear forwards}
+.proc.paused .pstep.on .ln i{animation-play-state:paused}
+@keyframes grow{from{width:0}to{width:100%}}
+.pstep small{font-family:var(--display);font-size:13px;color:var(--muted)}
+.pstep h3{font-size:clamp(17px,1.8vw,21px);margin-top:6px;color:var(--muted);transition:color .3s}
+.pstep.on h3,.pstep.done h3{color:var(--ink)}
+.pdetail{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-top:30px;padding-top:28px;border-top:1px solid var(--line);min-height:150px}
+.pdetail .big{width:110px;height:110px;border-radius:26px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,var(--indigo),var(--azure));box-shadow:0 18px 40px rgba(34,114,180,.25)}
+.pdetail .big svg{width:44px;height:44px}
+.pdetail h4{font-family:var(--display);font-weight:500;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em;line-height:1.15}
+.pdetail p{color:var(--muted);margin-top:8px;max-width:620px}
+.pdetail .tagline{display:inline-block;margin-top:14px;font-size:12.5px;padding:4px 12px;border-radius:999px;background:#EAF3FB;color:var(--azure)}
+.fade{animation:fadein .5s var(--ease)}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* giro */
+.gsel{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.gbtn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 18px;font-size:14px;cursor:pointer;color:var(--muted);display:inline-flex;align-items:center;gap:8px;transition:all .25s}
+.gbtn svg{width:16px;height:16px}
+.gbtn:hover{border-color:#C5CBE0;color:var(--ink)}
+.gbtn.on{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.gcase{display:grid;grid-template-columns:1.1fr 1fr;gap:14px}
+.gcase .card{display:flex;flex-direction:column}
+.gcase h3{font-size:clamp(22px,2.6vw,30px);line-height:1.15}
+.gcase .card p{color:var(--muted);margin-top:14px}
+.gcase .card .btn{margin-top:auto;align-self:flex-start}
+.gcase .card .pad{height:24px}
+.mini{list-style:none;display:grid;gap:0;position:relative}
+.mini li{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:12px 0;position:relative;font-size:14.5px;line-height:1.45}
+.mini li::before{content:"";position:absolute;left:16px;top:40px;bottom:-12px;width:2px;background:var(--line)}
+.mini li:last-child::before{display:none}
+.mini li b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--line);font-family:var(--display);font-weight:500;font-size:13px;color:var(--indigo);position:relative;z-index:1}
+.mini li:last-child b{background:var(--azure);border-color:var(--azure);color:#fff}
+.mini li span small{display:block;font-size:12px;color:var(--muted)}
+
+/* confianza */
+.trustgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:14px}
+.layers{display:grid;gap:8px;margin-top:20px}
+.layer{display:grid;grid-template-columns:44px 1fr 24px;gap:14px;align-items:center;text-align:left;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;cursor:pointer;transition:all .3s var(--ease);color:var(--ink);width:100%}
+.layer .li{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--soft);color:var(--indigo);transition:all .3s}
+.layer .li svg{width:20px;height:20px}
+.layer h4{font-family:var(--display);font-weight:500;font-size:17px}
+.layer p{font-size:13.5px;color:var(--muted);line-height:1.45;max-height:0;overflow:hidden;opacity:0;transition:max-height .45s var(--ease),opacity .35s,margin .35s}
+.layer .ck{width:24px;height:24px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:transparent;transition:all .3s}
+.layer .ck svg{width:12px;height:12px}
+.layer.on{border-color:var(--azure);box-shadow:0 10px 30px rgba(34,114,180,.12)}
+.layer.on .li{background:var(--azure);color:#fff}
+.layer.on p{max-height:90px;opacity:1;margin-top:4px}
+.layer.ok .ck,.layer.on .ck{background:var(--azure);border-color:var(--azure);color:#fff}
+.shield{display:flex;align-items:center;gap:12px;margin-top:18px;font-size:13.5px;color:var(--muted)}
+.shield .meter{flex:1;height:6px;border-radius:999px;background:var(--line);overflow:hidden}
+.shield .meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--indigo),var(--azure));transition:width .6s var(--ease)}
+.shield b{font-family:var(--display);font-weight:500;color:var(--ink)}
+
+.phone{border-radius:24px;background:#EFEAE2;padding:0;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;min-height:100%}
+.phone-top{display:flex;align-items:center;gap:12px;background:#1F2C34;color:#fff;padding:14px 18px}
+.phone-top .av{width:36px;height:36px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden}
+.phone-top .av img{width:30px}
+.phone-top b{display:block;font-family:var(--display);font-weight:500;font-size:15px;line-height:1.2}
+.phone-top small{font-size:12px;color:rgba(255,255,255,.65)}
+.chat{flex:1;padding:18px 16px;display:flex;flex-direction:column;gap:8px;min-height:380px;
+  background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);background-size:14px 14px}
+.msg{max-width:84%;padding:9px 12px 18px;border-radius:12px;font-size:14px;line-height:1.4;position:relative;box-shadow:0 1px 1px rgba(0,0,0,.08);opacity:0;transform:translateY(8px) scale(.98);transition:opacity .4s,transform .4s var(--ease)}
+.msg.show{opacity:1;transform:none}
+.msg time{position:absolute;right:9px;bottom:4px;font-size:10px;color:rgba(0,0,0,.45)}
+.msg.me{align-self:flex-end;background:#D9FDD3;border-top-right-radius:4px}
+.msg.them{align-self:flex-start;background:#fff;border-top-left-radius:4px}
+.quote{margin-top:6px;border-radius:10px;background:var(--soft);border:1px solid var(--line);padding:10px 12px;font-size:13px}
+.quote div{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px dashed var(--line)}
+.quote div:last-child{border:0}
+.quote span{color:var(--muted)}
+.quote strong{font-weight:500;color:var(--ink);text-align:right}
+.typing{align-self:flex-start;background:#fff;border-radius:12px;padding:10px 14px;display:none;gap:4px}
+.typing.show{display:flex}
+.typing i{width:6px;height:6px;border-radius:50%;background:#9AA0B4;animation:dot 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+.phone-cap{font-size:11.5px;color:var(--muted);padding:10px 16px;background:#fff;border-top:1px solid var(--line)}
+
+.verify{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:14px;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.verify div{padding:18px 18px;border-right:1px solid var(--line)}
+.verify div:last-child{border-right:0}
+.verify small{display:block;font-size:11.5px;color:var(--muted);letter-spacing:.02em}
+.verify b{display:block;font-family:var(--display);font-weight:500;font-size:16px;margin-top:4px;line-height:1.25}
+
+/* presencia local */
+.local{border-radius:var(--radius);padding:52px 48px;color:#fff;position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;margin-top:14px;
+  background:linear-gradient(135deg,#0B1650 0%,#1A2E86 60%,#2A5FC4 100%)}
+.local::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.55;
+  background:repeating-linear-gradient(90deg,rgba(3,8,40,.5) 0 3px,rgba(0,0,0,0) 18px,rgba(160,200,255,.14) 36px,rgba(0,0,0,0) 54px,rgba(3,8,40,.45) 72px);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 60%);mask-image:linear-gradient(90deg,transparent,#000 60%)}
+.chips{display:none}
+.local h2{font-size:clamp(28px,3.6vw,42px)}
+.local p{color:rgba(255,255,255,.75);margin-top:16px}
+.coast{position:relative;height:320px}
+.coast svg.path{position:absolute;inset:0;width:100%;height:100%}
+.coast svg.path path{stroke-dasharray:6 8;animation:dash 30s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-400}}
+.pin{position:absolute;display:flex;align-items:center;gap:10px;transform:translate(-9px,-9px)}
+.pin i{width:18px;height:18px;border-radius:50%;background:#A9CEFF;box-shadow:0 0 0 0 rgba(169,206,255,.6);animation:ping 2.6s infinite;flex:0 0 18px;border:4px solid #0B1650}
+.pin:nth-of-type(2) i{animation-delay:.6s}.pin:nth-of-type(3) i{animation-delay:1.2s}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(169,206,255,.55)}80%,100%{box-shadow:0 0 0 18px rgba(169,206,255,0)}}
+.pin span{font-family:var(--display);font-size:16px;font-weight:500;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:5px 12px;border-radius:999px;white-space:nowrap}
+.pin span small{font-family:var(--body);font-weight:400;font-size:11.5px;color:rgba(255,255,255,.7);margin-left:6px}
+
+/* faq */
+.faq{max-width:860px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:var(--display);font-size:19px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .circ{width:36px;height:36px;flex:0 0 36px;transition:transform .25s,background .25s}
+.faq details[open] summary .circ{transform:rotate(45deg);background:var(--indigo);border-color:var(--indigo);color:#fff}
+.faq details p{color:var(--muted);padding:0 56px 24px 0;font-size:15.5px}
+.faq details[open] p{animation:fadein .4s var(--ease)}
+
+/* formulario */
+.formcard{border-radius:var(--radius);color:#fff;position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:34px;margin-top:110px;
+  background:radial-gradient(ellipse 60% 55% at 0% 0%,rgba(70,160,230,.55),rgba(70,160,230,0) 70%),linear-gradient(160deg,#122A8A 0%,#0A1660 55%,#070F45 100%)}
+.fl{display:flex;flex-direction:column;justify-content:space-between;min-height:100%}
+.fl h2{font-size:clamp(34px,4.6vw,54px);margin-top:auto}
+.fl h2 .arr{display:inline-flex;align-items:center;vertical-align:middle;margin-left:14px;width:84px;height:26px;border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:0 10px;justify-content:flex-end}
+.fl h2 .arr svg{width:16px;height:16px;animation:nudge 2s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:none}50%{transform:translateX(-30px)}}
+.fl p{color:rgba(255,255,255,.72);font-size:14.5px;margin-top:18px;max-width:430px}
+.fl .wa{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:14px;color:rgba(255,255,255,.85)}
+.fl .wa svg{width:18px;height:18px}
+form{display:grid;gap:14px}
+.f label{display:block;font-size:13px;color:rgba(255,255,255,.85);margin-bottom:6px}
+.f input,.f select{width:100%;height:44px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.08);color:#fff;padding:0 14px;outline:none;transition:border-color .2s,background .2s,box-shadow .4s;appearance:none;-webkit-appearance:none}
+.f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.f select:invalid{color:rgba(255,255,255,.45)}
+.f select option{color:#0E1238}
+.f input::placeholder{color:rgba(255,255,255,.4)}
+.f input:focus,.f select:focus{border-color:rgba(160,205,255,.7);background:rgba(255,255,255,.11)}
+.f.pre select{box-shadow:0 0 0 3px rgba(169,206,255,.45)}
+.f.bad input,.f.bad select{border-color:#FF8A8A}
+.err{display:none;font-size:12.5px;color:#FFB4B4;margin-top:5px}
+.f.bad .err{display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{margin:0;display:flex;align-items:center;justify-content:center;height:44px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);cursor:pointer;font-size:14px;color:rgba(255,255,255,.85);transition:all .2s;text-align:center;line-height:1.2;padding:0 8px}
+.seg input:checked+label{background:#fff;color:var(--ink);border-color:#fff}
+.submit{margin-top:6px;width:100%;justify-content:space-between;height:52px;border-radius:12px;padding:0 20px;font-size:15px}
+.fine{font-size:12px;color:rgba(255,255,255,.55);line-height:1.5}
+
+/* footer */
+footer{padding:70px 0 40px}
+.foot{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;border-top:1px solid var(--line);padding-top:34px}
+.foot img{height:52px;width:auto}
+.foot p{font-size:12.5px;color:var(--muted);max-width:560px;line-height:1.6}
+.foot .ct{text-align:right;font-size:13.5px}
+.foot .ct a{display:block;font-family:var(--display);font-size:18px;color:var(--ink);font-weight:500}
+
+.mbar{display:none}
+
+@media (max-width:980px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:60px}
+  .fiscal,.local,.formcard,.calc,.gcase,.trustgrid{grid-template-columns:1fr}
+  .verify{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .verify div{border-bottom:1px solid var(--line)}
+  .float-card{display:none}
+  .fl h2{margin-top:40px}
+}
+@media (max-width:720px){
+  .top-r span{display:none}
+  .top img{height:38px}
+  .top .btn-dark{padding:9px 14px;font-size:13px}
+  .pill{font-size:11.5px}
+  .seg label{font-size:13px}
+  .hero{padding:64px 18px 18px}
+  section{padding-top:80px}
+  .head{flex-direction:column;align-items:flex-start;gap:12px}
+  .cols{display:none}
+  .row{grid-template-columns:1fr 44px;gap:10px 14px;padding:22px 0}
+  .row .circ{grid-row:1/2;grid-column:2/3}
+  .row .tags,.row .val{grid-column:1/-1}
+  .row .val::before{content:"Con Twenty Seven: ";font-family:var(--body);font-size:13px;color:var(--muted);font-weight:400}
+  .card{padding:22px 18px}
+  .out{grid-template-columns:1fr}
+  .bars{height:120px;gap:4px}
+  .months{gap:4px;font-size:9.5px}
+  .prog{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+  .pstep h3{display:none}
+  .proc{padding:22px 18px}
+  .pdetail{grid-template-columns:1fr;gap:18px}
+  .pdetail .big{width:72px;height:72px;border-radius:18px}
+  .pdetail .big svg{width:30px;height:30px}
+  .flow-in{grid-template-columns:1fr 40px 1fr}
+  .doc strong{font-size:14px}
+  .verify{grid-template-columns:1fr}
+  .verify div{border-right:0}
+  .local{padding:36px 22px}
+  .coast{height:260px}
+  .formcard{padding:26px 18px;margin-top:80px;gap:28px}
+  .two{grid-template-columns:1fr}
+  .faq details p{padding-right:0}
+  .foot{flex-direction:column}
+  .foot .ct{text-align:left}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:50;transition:transform .3s,opacity .3s}
+  .mbar a{flex:1;justify-content:center;height:52px;border-radius:14px;font-size:15px;box-shadow:0 12px 30px rgba(8,19,69,.35)}
+  .mbar.hide{transform:translateY(120%);opacity:0}
+}
+
+/* ===== movil compacto: menos scroll, misma informacion ===== */
+@media (max-width:720px){
+  body{font-size:15px;line-height:1.5}
+  section{padding-top:54px}
+  .head{margin-bottom:18px;gap:8px}
+  .head h2{font-size:27px;line-height:1.1}
+  .head h2 .star{display:none}
+  .head p{font-size:13px;max-width:none}
+  .eyebrow{margin-bottom:6px}
+  .wrap{padding:0 14px}
+  .top{padding:12px 0}
+
+  /* hero */
+  .hero{padding:32px 14px 14px;border-radius:18px}
+  .hero .pill{font-size:10.5px;white-space:nowrap;padding:4px 11px}
+  .hero h1{font-size:31px;margin:14px 0 10px}
+  .hero p.sub{font-size:14px;line-height:1.45}
+  .hero-cta{margin-top:18px;gap:8px}
+  .hero-cta .btn{padding:13px 22px;font-size:14.5px}
+  .hero-cta small{font-size:11.5px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:26px}
+  .glass{padding:12px 12px 13px;border-radius:13px;display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:center}
+  .glass .ic{width:24px;height:24px;margin:0}
+  .glass .ic svg{width:11px;height:11px}
+  .glass b{font-size:23px}
+  .glass > span{grid-column:1/-1;font-size:11.5px;margin-top:5px;line-height:1.3}
+
+  /* comparativa: una linea por concepto */
+  .row{grid-template-columns:1fr auto;gap:4px 12px;padding:12px 0}
+  .row h3{font-size:15.5px}
+  .row h3{grid-row:1;grid-column:1}
+  .row .val{grid-row:1;grid-column:2;font-size:15px;text-align:right;max-width:46vw;color:var(--azure);line-height:1.2}
+  .row .val::before{content:none}
+  .row .tags{grid-row:2;grid-column:1/-1;gap:4px}
+  .row .tag{font-size:11px;padding:1px 8px}
+  .row .circ{display:none}
+  .row:hover{background:none}
+  .legend{font-size:11px;margin-top:8px}
+
+  /* calculadora */
+  .calc{gap:10px}
+  .card{padding:16px 14px;border-radius:16px}
+  .card h3{font-size:17px}
+  .card .hint{font-size:12.5px}
+  .amt{margin:14px 0 6px}
+  .amt output{font-size:28px}
+  .ticks{font-size:10.5px;margin-top:4px}
+  .out{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:14px}
+  .out div{padding:9px 9px;border-radius:10px}
+  .out small{font-size:10.5px}
+  .out b{font-size:14.5px;white-space:normal;margin-top:3px}
+  .out b em{display:block;font-size:10px}
+  .out .lg,.chart-top .lgd{display:none}
+  .out .sm{display:inline}
+  .out b{font-size:13.5px}
+  .chart{margin-top:14px}
+  .chart-top{font-size:10.5px;margin-bottom:6px;flex-wrap:wrap;gap:2px}
+  .chart-top i{margin-left:8px}
+  .bars{height:88px;gap:3px}
+  .months{gap:3px;font-size:9px}
+  .calc-foot{margin-top:12px;gap:10px}
+  .calc-foot p{font-size:10.5px}
+  .calc-foot .btn{width:100%;justify-content:center}
+  .lq{gap:12px;margin-top:14px}
+  .lq-row small{font-size:12px;margin-bottom:4px}
+  .lq-row small b{font-size:13px}
+  .track{height:24px;border-radius:7px}
+  .axis{font-size:10px}
+  .bigstat{margin-top:14px;padding-top:12px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center}
+  .bigstat b{font-size:38px}
+  .bigstat p{margin:0;font-size:12.5px;line-height:1.4}
+
+  /* factura */
+  .fiscal{gap:14px}
+  .fiscal h2{font-size:27px}
+  .fiscal .lead{font-size:14px;margin-top:10px}
+  .flow{margin-top:16px;padding:14px 12px 12px;border-radius:14px}
+  .flow-in{grid-template-columns:1fr 30px 1fr}
+  .doc{padding:9px 10px 10px;border-radius:9px}
+  .doc small{font-size:9px}
+  .doc strong{font-size:13px;margin:0 0 6px}
+  .doc i{height:4px;margin-top:4px}
+  .doc .seal{font-size:9.5px;margin-top:7px;gap:4px}
+  .doc .seal svg{width:11px;height:11px}
+  .wire b{width:20px;height:20px;margin:-10px 0 0 -10px;font-size:11px}
+  .flow-cap{margin-top:10px}
+  .flow-cap b{font-size:13px}
+  .fcards{gap:6px}
+  .fcard{grid-template-columns:34px 1fr;gap:12px;padding:12px 12px;border-radius:12px}
+  .fcard .n{width:34px;height:34px;border-radius:9px}
+  .fcard .n svg{width:16px;height:16px}
+  .fcard h3{font-size:15.5px;margin-bottom:2px}
+  .fcard p{font-size:12.5px;line-height:1.4}
+  .fcard:hover{transform:none}
+  .fnote{font-size:11px}
+
+  /* proceso */
+  .proc{padding:14px;border-radius:16px}
+  .pstep .ln{margin-bottom:6px}
+  .pstep small{font-size:11px}
+  .pdetail{grid-template-columns:44px 1fr;gap:12px;margin-top:12px;padding-top:12px;min-height:0;align-items:start}
+  .pdetail .big{width:44px;height:44px;border-radius:12px;box-shadow:none}
+  .pdetail .big svg{width:20px;height:20px}
+  .pdetail h4{font-size:17px;line-height:1.2}
+  .pdetail p{font-size:13px;margin-top:4px;line-height:1.45}
+  .pdetail .tagline{margin-top:8px;font-size:11px}
+
+  /* giro: una sola fila deslizable */
+  .gsel{flex-wrap:nowrap;overflow-x:auto;margin:0 -14px 10px;padding:0 14px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .gsel::-webkit-scrollbar{display:none}
+  .gbtn{flex:0 0 auto;padding:8px 14px;font-size:13px}
+  .gcase{gap:8px}
+  .gcase h3{font-size:19px}
+  .gcase .card p{font-size:13.5px;margin-top:8px}
+  .gcase .card .pad{height:12px}
+  .gcase .card .btn{width:100%;justify-content:center}
+  .gcase .card.soft{padding:12px 14px}
+  .gcase .card.soft .eyebrow{display:none}
+  .mini{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+  .mini li{grid-template-columns:1fr;gap:5px;padding:0;font-size:11px;line-height:1.25;text-align:center;justify-items:center}
+  .mini li::before{left:calc(50% + 14px);right:calc(-50% + 14px);top:13px;bottom:auto;width:auto;height:2px}
+  .mini li b{width:26px;height:26px;font-size:11px}
+  .mini li span small{display:none}
+
+  /* confianza */
+  .trustgrid{gap:10px}
+  .trustgrid .card h3{font-size:19px!important;margin-top:10px!important}
+  .layers{gap:5px;margin-top:12px}
+  .layer{grid-template-columns:34px 1fr 20px;gap:10px;padding:9px 10px;border-radius:11px}
+  .layer .li{width:34px;height:34px;border-radius:9px}
+  .layer .li svg{width:16px;height:16px}
+  .layer h4{font-size:14.5px}
+  .layer p{font-size:12px}
+  .layer .ck{width:20px;height:20px}
+  .shield{margin-top:10px;font-size:12px}
+  .phone{border-radius:16px}
+  .phone-top{padding:9px 12px;gap:9px}
+  .phone-top .av{width:28px;height:28px}
+  .phone-top .av img{width:22px}
+  .phone-top b{font-size:13px}
+  .phone-top small{font-size:10.5px}
+  .chat{min-height:0;padding:10px;gap:5px}
+  .msg{font-size:12.5px;padding:7px 9px 15px;max-width:88%}
+  .msg time{font-size:9px}
+  .quote{padding:6px 9px;font-size:11.5px;margin-top:2px}
+  .quote div{padding:1px 0}
+  .phone-cap{font-size:10.5px;padding:7px 12px}
+  .verify{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:10px;border-radius:14px}
+  .verify div{padding:9px 11px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .verify div:nth-child(2n){border-right:0}
+  .verify div:last-child{grid-column:1/-1;border-bottom:0}
+  .verify small{font-size:10px}
+  .verify b{font-size:13px;margin-top:1px}
+  .local{padding:22px 16px;margin-top:10px;border-radius:18px;gap:0}
+  .local h2{font-size:23px;margin-top:10px!important}
+  .local p{font-size:13.5px;margin-top:8px}
+  .local .btn{margin-top:14px!important;width:100%;justify-content:center}
+  .coast{display:none}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chips span{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
+  .chips i{width:6px;height:6px;border-radius:50%;background:#A9CEFF}
+
+  /* faq */
+  .faq summary{font-size:15.5px;padding:13px 0;gap:12px}
+  .faq summary .circ{width:28px;height:28px;flex-basis:28px}
+  .faq summary .circ svg{width:12px;height:12px}
+  .faq details p{font-size:13.5px;padding-bottom:14px}
+
+  /* formulario */
+  .formcard{padding:18px 14px;margin-top:54px;gap:14px;border-radius:18px}
+  .fl .pill{display:none}
+  .fl h2{font-size:30px;margin-top:0}
+  .fl h2 .arr{width:56px;height:22px;margin-left:8px}
+  .fl p{font-size:13px;margin-top:8px}
+  .fl .wa{display:none}
+  form{gap:9px}
+  .f label{font-size:12px;margin-bottom:3px}
+  .f input,.f select{height:42px;font-size:15px}
+  .two{grid-template-columns:1fr 1fr;gap:8px}
+  .two .f select,.two .f input{padding-right:24px;padding-left:10px;font-size:13.5px;background-position:right 8px center}
+  .err{font-size:11px}
+  .seg label{height:40px}
+  .submit{height:48px;margin-top:2px}
+  .fine{font-size:10.5px}
+
+  footer{padding:36px 0 84px}
+  .foot{padding-top:20px;gap:14px}
+  .foot img{height:40px}
+  .foot p{font-size:11px;margin-top:10px!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  .msg{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <img src="assets/logo-27.png" alt="Proyecto Twenty Seven Cancún" width="718" height="312">
+    <div class="top-r">
+      <span>Cancún · Playa del Carmen · Riviera Maya</span>
+      <a href="#cotizar" class="btn btn-dark">Cotizar operación</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="light" aria-hidden="true"></div>
+    <div class="hero-in">
+      <span class="pill"><i></i>Mesa de operaciones para empresas en Quintana Roo</span>
+      <h1>Recibe tus dólares en pesos. <em>Con factura que tu empresa deduce.</em></h1>
+      <p class="sub">Si tu empresa cobra desde Estados Unidos, te damos un tipo de cambio dos puntos mejor que el de tu banco, cero comisiones, SPEI en menos de 24 horas y CFDI 4.0 por cada operación.</p>
+      <div class="hero-cta">
+        <a href="#calculadora" class="btn btn-light">Calcula lo que estás perdiendo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+        <small>Tipo de cambio cerrado por escrito antes de que envíes un dólar</small>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="glass rv d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg></div>
+        <b class="num">+<span data-count="2">0</span> pts</b><span>Tipo de cambio mejor que el de tu banco</span>
+      </div>
+      <div class="glass rv d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/><path d="M19 5L5 19"/></svg></div>
+        <b class="num">0%</b><span>Comisión por recibir y por enviar</span>
+      </div>
+      <div class="glass rv d3">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg></div>
+        <b class="num">&lt; <span data-count="24">0</span> h</b><span>Pesos en tu cuenta vía SPEI</span>
+      </div>
+      <div class="glass rv d4">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div>
+        <b>CFDI 4.0</b><span>Factura deducible por cada operación</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARATIVA -->
+  <section id="diferencia">
+    <div class="head rv">
+      <h2>Lo que cambia cuando dejas de cobrar con tu banco<span class="star">✳</span></h2>
+      <p>La misma operación de siempre. Seis diferencias que se ven en tu estado de cuenta y en tu declaración.</p>
+    </div>
+
+    <div class="cols"><span>concepto</span><span>con tu banco o pasarela</span><span>con twenty seven</span><span></span></div>
+
+    <div class="row rv">
+      <h3>Tipo de cambio</h3>
+      <div class="tags"><span class="tag">el de cada institución</span><span class="tag">sin referencia pública</span></div>
+      <div class="val">Dos puntos mejor</div>
+      <a href="#cotizar" class="circ" aria-label="Cotizar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="row rv">
+      <h3>Comisión por recibir</h3>
+      <div class="tags"><span class="tag x">3.5% a 4% + IVA</span></div>
+      <div class="val">0%</div>
+      <a href="#calculadora" class="circ" aria-label="Calcular"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="row rv">
+      <h3>Comisión por enviar</h3>
+      <div class="tags"><span class="tag x">cargo fijo por transferencia</span></div>
+      <div class="val">0%</div>
+      <a href="#cotizar" class="circ" aria-label="Cotizar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="row rv">
+      <h3>Tiempo de liquidación</h3>
+      <div class="tags"><span class="tag">24 a 72 horas hábiles</span><span class="tag">sin liquidez mientras tanto</span></div>
+      <div class="val">Menos de 24 horas</div>
+      <a href="#calculadora" class="circ" aria-label="Ver tiempos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="row rv">
+      <h3>Respaldo del pago</h3>
+      <div class="tags"><span class="tag">transferencia sin contrato</span></div>
+      <div class="val">Contrato de comercialización</div>
+      <a href="#factura" class="circ" aria-label="Ver respaldo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="row feat rv">
+      <h3>Factura fiscal</h3>
+      <div class="tags"><span class="tag on">deducible de ISR</span><span class="tag on">IVA acreditable</span><span class="tag on">ingreso amparado</span></div>
+      <div class="val">CFDI 4.0</div>
+      <a href="#factura" class="circ" aria-label="Ver beneficio fiscal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <div class="float-card" aria-hidden="true"><div>Sale con contrato.<br>Llega con factura.</div></div>
+    </div>
+    <p class="legend">Comisión de recepción estimada sobre tarifas típicas de pasarelas de pago y banca tradicional.</p>
+  </section>
+
+  <!-- CALCULADORA -->
+  <section id="calculadora">
+    <div class="head rv">
+      <h2>Mueve la barra. Mira lo que tu banco se queda<span class="star">✳</span></h2>
+      <p>Pon lo que tu empresa recibe al mes desde Estados Unidos. El cálculo se hace solo.</p>
+    </div>
+
+    <div class="calc">
+      <div class="card rv">
+        <h3>Lo que pierdes en comisiones por recibir</h3>
+        <p class="hint">Con pasarela de pago o banca tradicional, al 3.5% a 4% más IVA.</p>
+
+        <div class="amt"><label for="usd">Recibes al mes</label><output id="usdOut" class="num">10,000 USD</output></div>
+        <input type="range" id="usd" min="1000" max="150000" step="1000" value="10000" aria-label="Monto mensual en dólares">
+        <div class="ticks"><span>1,000</span><span>50,000</span><span>100,000</span><span>150,000 USD</span></div>
+
+        <div class="out">
+          <div class="bad"><small><span class="lg">Te descuentan </span>al mes</small><b class="num" id="oMes">—</b></div>
+          <div class="bad"><small><span class="lg">Te descuentan </span>al año</small><b class="num" id="oAno">—</b></div>
+          <div class="good"><small>Con <span class="lg">Twenty Seven</span><span class="sm">nosotros</span></small><b class="num">0 <em>USD</em></b></div>
+        </div>
+
+        <div class="chart" aria-hidden="true">
+          <div class="chart-top"><span>Comisiones acumuladas en 12 meses · <b id="yMax" class="num" style="color:var(--ink);font-weight:500"></b></span><span class="lgd"><i style="background:var(--red)"></i>al 3.5%<i style="background:#F2C9C6"></i>al 4%</span></div>
+          <div class="bars" id="bars"></div>
+          <div class="months"><span>E</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div>
+        </div>
+
+        <div class="calc-foot">
+          <p>Estimado solo sobre la comisión de recepción, IVA incluido. No suma el cargo por enviar, la mejora de tipo de cambio ni el beneficio fiscal de la factura.</p>
+          <a href="#cotizar" class="btn btn-dark" id="calcCta">Cotizar este monto
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </div>
+
+      <div class="card soft rv d2" id="liquidez">
+        <h3>Cuánto esperas tu propio dinero</h3>
+        <p class="hint">Horas desde que tu cliente paga hasta que puedes usar los pesos.</p>
+
+        <div class="lq">
+          <div class="lq-row">
+            <small><span>Banca tradicional</span><b>24 a 72 h hábiles</b></small>
+            <div class="track"><div class="fill bank" data-from="33.3" data-to="100"></div></div>
+          </div>
+          <div class="lq-row">
+            <small><span>Twenty Seven</span><b>menos de 24 h</b></small>
+            <div class="track"><div class="fill ours" data-from="0" data-to="33.3"></div></div>
+          </div>
+          <div class="axis"><span>0 h</span><span>24 h</span><span>48 h</span><span>72 h</span></div>
+        </div>
+
+        <div class="bigstat">
+          <b class="num">3<span style="font-size:.5em;vertical-align:.5em;margin-left:4px">×</span></b>
+          <p>En el peor caso del banco, esperas hasta tres veces más. En temporada alta, eso es una nómina que no puedes pagar a tiempo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIO FISCAL -->
+  <section id="factura">
+    <div class="fiscal">
+      <div class="rv">
+        <span class="eyebrow">El beneficio que ningún banco te da</span>
+        <h2>Tu banco te cobra. Nosotros te facturamos.</h2>
+        <p class="lead">Como operamos con un ecosistema fiscal propio, cada operación sale con su CFDI 4.0. Eso convierte un costo que hoy no puedes comprobar en un gasto que tu empresa sí puede deducir.</p>
+
+        <div class="flow" aria-label="El pago sale con contrato desde Estados Unidos y llega con factura a México">
+          <div class="flow-in">
+            <div class="doc">
+              <small>Estados Unidos</small>
+              <strong>Contrato</strong>
+              <i></i><i></i><i></i>
+              <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17c3-4 5 2 8-2s4-1 6 1M3 21h18"/></svg>Firmado por quien paga</div>
+            </div>
+            <div class="wire"><b>$</b></div>
+            <div class="doc b">
+              <small>México</small>
+              <strong>CFDI 4.0</strong>
+              <i></i><i></i><i></i>
+              <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Deducible para tu empresa</div>
+            </div>
+          </div>
+          <div class="flow-cap"><b>Sale con contrato</b><b>Llega con factura</b></div>
+        </div>
+      </div>
+      <div class="fcards">
+        <div class="fcard rv d1">
+          <div class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/></svg></div>
+          <div><h3>Gasto deducible de ISR</h3><p>La factura ampara el servicio como gasto de tu empresa, y eso reduce la base sobre la que pagas impuesto.</p></div>
+        </div>
+        <div class="fcard rv d2">
+          <div class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h3"/></svg></div>
+          <div><h3>IVA acreditable</h3><p>El IVA de la factura se acredita contra el IVA que tu empresa ya traslada. No es un costo que se pierde.</p></div>
+        </div>
+        <div class="fcard rv d3">
+          <div class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div><h3>Ingreso amparado ante el SAT</h3><p>Contrato en el origen y factura en el destino. La operación queda documentada de punta a punta.</p></div>
+        </div>
+        <p class="fnote rv d4">El beneficio fiscal exacto depende del régimen de tu empresa. Te recomendamos validarlo con tu contador.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section id="proceso">
+    <div class="head rv">
+      <h2>Cuatro pasos, menos de un día<span class="star">✳</span></h2>
+      <p>Del primer mensaje a los pesos en tu cuenta, con el tipo de cambio cerrado desde el inicio.</p>
+    </div>
+    <div class="proc rv" id="proc">
+      <div class="prog" role="tablist">
+        <button class="pstep" role="tab" data-i="0"><div class="ln"><i></i></div><small>01</small><h3>Cotizas</h3></button>
+        <button class="pstep" role="tab" data-i="1"><div class="ln"><i></i></div><small>02</small><h3>Firmamos contrato</h3></button>
+        <button class="pstep" role="tab" data-i="2"><div class="ln"><i></i></div><small>03</small><h3>Recibes pesos</h3></button>
+        <button class="pstep" role="tab" data-i="3"><div class="ln"><i></i></div><small>04</small><h3>Recibes tu factura</h3></button>
+      </div>
+      <div class="pdetail" id="pdetail" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- PARA QUIÉN -->
+  <section id="empresas">
+    <div class="head rv">
+      <h2>¿A qué se dedica tu empresa?<span class="star">✳</span></h2>
+      <p>Elige tu giro y mira cómo se ve una operación como la tuya.</p>
+    </div>
+    <div class="gsel rv" id="gsel" role="tablist"></div>
+    <div class="gcase rv" id="gcase"></div>
+  </section>
+
+  <!-- CONFIANZA -->
+  <section id="confianza">
+    <div class="head rv">
+      <h2>Antes de que envíes un dólar, te mostramos cómo lo protegemos<span class="star">✳</span></h2>
+      <p>No te pedimos que confíes a ciegas. Te mostramos cada control antes de que envíes un dólar.</p>
+    </div>
+
+    <div class="trustgrid">
+      <div class="card rv">
+        <span class="pill dk"><i></i>Protocolo de cada operación</span>
+        <h3 style="font-size:clamp(22px,2.4vw,28px);margin-top:16px;line-height:1.15">Tu dinero pasa por cuatro controles</h3>
+        <div class="layers" id="layers">
+          <button class="layer" data-i="0">
+            <span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M14 10h4M14 14h3"/></svg></span>
+            <span><h4>Validación de identidad</h4><p>Antes de la primera operación verificamos quién eres y a nombre de quién está la cuenta que recibe.</p></span>
+            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+          </button>
+          <button class="layer" data-i="1">
+            <span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6M8 17c2-2 3 1 5-1"/></svg></span>
+            <span><h4>Contrato en el origen</h4><p>Quien te paga en Estados Unidos firma un contrato de comercialización con Proyecto Twenty Seven.</p></span>
+            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+          </button>
+          <button class="layer" data-i="2">
+            <span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span>
+            <span><h4>Solo el mismo titular</h4><p>Los pesos solo se depositan a una cuenta a nombre de quien opera. Nunca a terceros.</p></span>
+            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+          </button>
+          <button class="layer" data-i="3">
+            <span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <span><h4>Factura en el destino</h4><p>Cada operación cierra con CFDI 4.0 emitido por Proyecto Twenty Seven Cancún.</p></span>
+            <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+          </button>
+        </div>
+        <div class="shield"><span>Controles activos</span><div class="meter"><i id="meter"></i></div><b id="meterN">0 de 4</b></div>
+      </div>
+
+      <div class="phone rv d2">
+        <div class="phone-top">
+          <div class="av"><img src="assets/logo-27.png" alt=""></div>
+          <div><b>Twenty Seven · Executive desk</b><small>en línea</small></div>
+        </div>
+        <div class="chat" id="chat">
+          <div class="msg me">Voy a recibir 10,000 USD de un cliente en Texas. ¿Cuánto me entregan?<time>10:02</time></div>
+          <div class="msg them">Te lo cotizo con tipo de cambio cerrado. Cero comisión por recibir y por enviar.<time>10:03</time></div>
+          <div class="msg them">
+            <div class="quote">
+              <div><span>Monto</span><strong>10,000 USD</strong></div>
+              <div><span>Tipo de cambio</span><strong>Cerrado por escrito</strong></div>
+              <div><span>Comisiones</span><strong>0</strong></div>
+              <div><span>SPEI</span><strong>Menos de 24 h</strong></div>
+              <div><span>Contrato y CFDI 4.0</span><strong>Incluidos</strong></div>
+            </div><time>10:03</time>
+          </div>
+          <div class="msg me">Perfecto. Te paso los datos de mi cliente para el contrato.<time>10:05</time></div>
+          <div class="typing" id="typing"><i></i><i></i><i></i></div>
+        </div>
+        <div class="phone-cap">Ejemplo ilustrativo de una cotización por WhatsApp. Tu tipo de cambio se cierra por escrito antes de operar.</div>
+      </div>
+    </div>
+
+    <div class="verify rv">
+      <div><small>Emisor de la factura</small><b>Proyecto Twenty Seven Cancún</b></div>
+      <div><small>Comprobante</small><b>CFDI 4.0</b></div>
+      <div><small>Clave SAT del servicio</small><b>80161500</b></div>
+      <div><small>Régimen fiscal</small><b>RESICO</b></div>
+      <div><small>Atención</small><b>Oficina en Cancún</b></div>
+    </div>
+
+    <div class="local rv">
+      <div>
+        <span class="pill"><i></i>Atención presencial</span>
+        <h2 style="margin-top:18px">No somos un banco. Tampoco una plataforma que responde desde otro país.</h2>
+        <p>Cuando mueves montos altos, hablas con una persona que puede sentarse contigo, revisar la documentación y validar tu primera operación en persona.</p>
+        <div class="chips"><span><i></i>Cancún</span><span><i></i>Playa del Carmen</span><span><i></i>Tulum</span></div>
+        <a href="#cotizar" class="btn btn-light" style="margin-top:26px" data-pref="Reunión presencial">Agendar reunión presencial
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+      <div class="coast" aria-label="Cobertura presencial en Cancún, Playa del Carmen y Tulum">
+        <svg class="path" viewBox="0 0 400 320" preserveAspectRatio="none" aria-hidden="true"><path d="M250 20 C 230 90, 200 120, 180 160 S 120 250, 90 300" fill="none" stroke="rgba(169,206,255,.55)" stroke-width="2"/></svg>
+        <div class="pin" style="left:62%;top:9%"><i></i><span>Cancún<small>oficina</small></span></div>
+        <div class="pin" style="left:45%;top:50%"><i></i><span>Playa del Carmen</span></div>
+        <div class="pin" style="left:24%;top:91%"><i></i><span>Tulum</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="preguntas">
+    <div class="head rv"><h2>Lo que nos preguntan antes de la primera operación<span class="star">✳</span></h2></div>
+    <div class="faq rv">
+      <details>
+        <summary>¿Son un banco?<span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>No. Somos una mesa de operaciones que presta un servicio administrativo de liquidez, respaldada operacionalmente por Proyecto Twenty Seven Cancún. No captamos recursos ni abrimos cuentas.</p>
+      </details>
+      <details>
+        <summary>¿Cómo sé qué tipo de cambio me van a dar?<span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Te lo cotizamos y lo cerramos por escrito en WhatsApp antes de que tu cliente envíe el dinero. Lo que ves en la cotización es lo que recibes.</p>
+      </details>
+      <details>
+        <summary>¿Qué es el contrato de comercialización?<span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Es el contrato que celebra quien te paga en Estados Unidos con Proyecto Twenty Seven. Documenta el origen del dinero y respalda la operación desde que sale.</p>
+      </details>
+      <details>
+        <summary>¿Puedo recibir pagos en USDT?<span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Sí. Además de transferencias ACH o wire a nuestra cuenta en Estados Unidos, recibimos USDT y te entregamos pesos por SPEI, con la misma factura.</p>
+      </details>
+      <details>
+        <summary>¿Qué necesito para empezar?<span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Una validación de identidad y una cuenta bancaria en México a nombre del mismo titular que recibe la operación. El resto lo resolvemos contigo por WhatsApp o en persona.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- FORMULARIO -->
+  <div class="formcard rv" id="cotizar">
+    <div class="fl">
+      <span class="pill" style="align-self:flex-start"><i></i>Cotización sin compromiso</span>
+      <div>
+        <h2>Cotiza tu<span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><br>operación hoy</h2>
+        <p>Cuéntanos cómo cobras hoy. Al enviar se abre WhatsApp con tus datos ya escritos, para que tu asesor te responda con la cotización y no tengas que repetir nada.</p>
+        <div class="wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>WhatsApp 998 301 6102</div>
+      </div>
+    </div>
+
+    <form id="lead" novalidate>
+      <div class="two">
+        <div class="f"><label for="nombre">Nombre</label><input id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="name"><span class="err">Escribe tu nombre</span></div>
+        <div class="f"><label for="empresa">Empresa</label><input id="empresa" name="empresa" placeholder="Tu empresa" autocomplete="organization"><span class="err">Escribe el nombre de tu empresa</span></div>
+      </div>
+      <div class="f"><label for="giro">Giro de tu empresa</label>
+        <select id="giro" name="giro" required><option value="">Selecciona una opción</option><option>Turismo, DMC o agencia de viajes</option><option>Desarrollo inmobiliario o bienes raíces</option><option>Bodas y eventos de destino</option><option>Clínica o servicios de salud</option><option>Consultoría o despacho</option><option>Otro</option></select>
+        <span class="err">Elige el giro de tu empresa</span></div>
+      <div class="two">
+        <div class="f"><label for="monto">Monto mensual en dólares</label>
+          <select id="monto" name="monto" required><option value="">Elige un rango</option><option>Menos de 5,000 USD</option><option>5,000 a 20,000 USD</option><option>20,000 a 50,000 USD</option><option>50,000 a 100,000 USD</option><option>Más de 100,000 USD</option></select>
+          <span class="err">Elige un rango</span></div>
+        <div class="f"><label for="pago">Cómo te pagan hoy</label>
+          <select id="pago" name="pago" required><option value="">Elige una opción</option><option>Transferencia bancaria desde EE.UU.</option><option>Pasarela de pago</option><option>USDT o cripto</option><option>Aún no recibo pagos del extranjero</option></select>
+          <span class="err">Elige una opción</span></div>
+      </div>
+      <div class="f"><label for="ciudad">Ciudad</label>
+        <select id="ciudad" name="ciudad" required><option value="">Selecciona tu ciudad</option><option>Cancún</option><option>Playa del Carmen</option><option>Tulum</option><option>Otra ciudad de Quintana Roo</option><option>Fuera de Quintana Roo</option></select>
+        <span class="err">Elige tu ciudad</span></div>
+      <div class="f"><label>¿Cómo prefieres avanzar?</label>
+        <div class="seg">
+          <input type="radio" id="p1" name="pref" value="Cotizar por WhatsApp" checked><label for="p1">Cotizar por WhatsApp</label>
+          <input type="radio" id="p2" name="pref" value="Reunión presencial"><label for="p2">Reunión presencial</label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-light submit">Enviar y continuar en WhatsApp
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></button>
+      <p class="fine">Tus datos solo se usan para preparar tu cotización. No somos una institución financiera ni captamos recursos del público.</p>
+    </form>
+  </div>
+
+  <footer>
+    <div class="foot">
+      <div>
+        <img src="assets/logo-27.png" alt="Proyecto Twenty Seven Cancún" width="718" height="312">
+        <p style="margin-top:16px">Twenty Seven Financial Services es una mesa de operaciones que presta servicios administrativos de liquidez, respaldada operacionalmente por Proyecto Twenty Seven Cancún. No es una institución financiera, no capta recursos del público y solo opera con cuentas del mismo titular.</p>
+      </div>
+      <div class="ct">Executive desk<a href="https://wa.me/529983016102" target="_blank" rel="noopener">998 301 6102</a>Cancún · Playa del Carmen · Riviera Maya</div>
+    </div>
+  </footer>
+</div>
+
+<div class="mbar" id="mbar"><a href="#cotizar" class="btn btn-dark">Cotizar mi operación</a></div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function(id){ return document.getElementById(id); };
+  var usdFmt = function(n){ return Math.round(n).toLocaleString("en-US") + " USD"; };
+
+  /* ---------- aparición al scroll ---------- */
+  var io = "IntersectionObserver" in window;
+  var watch = [], ticking = false, ob = null;
+  function check(){
+    ticking = false;
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    for(var i = watch.length - 1; i >= 0; i--){
+      var w = watch[i], r = w.el.getBoundingClientRect();
+      if(r.top < h * (1 - w.m) && r.bottom > 0){ watch.splice(i, 1); if(ob) ob.unobserve(w.el); w.fn(); }
+    }
+  }
+  function queue(){ if(!ticking){ ticking = true; (window.requestAnimationFrame || setTimeout)(check); setTimeout(check, 120); } }
+  if(io){ ob = new IntersectionObserver(queue, {threshold:[0, .1, .3]}); }
+  function onView(el, fn, m){
+    if(reduce){ fn(); return; }
+    watch.push({el:el, fn:fn, m:m || .08});
+    if(ob) ob.observe(el);
+  }
+  window.addEventListener("scroll", queue, {passive:true});
+  window.addEventListener("resize", queue);
+  window.addEventListener("load", check);
+  document.querySelectorAll(".rv").forEach(function(el){
+    onView(el, function(){ el.classList.add("in"); });
+  });
+
+  setTimeout(function(){ document.querySelectorAll(".rv:not(.in)").forEach(function(el){ if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add("in"); }); }, 2500);
+
+  /* ---------- contadores del hero ---------- */
+  document.querySelectorAll("[data-count]").forEach(function(el){
+    var to = +el.dataset.count;
+    onView(el, function(){
+      if(reduce){ el.textContent = to; return; }
+      var t0 = null;
+      function step(t){ if(!t0) t0 = t; var p = Math.min((t - t0) / 1400, 1);
+        el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if(p < 1) requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    });
+  });
+
+  /* ---------- formulario: preselección ---------- */
+  function preset(id, value){
+    var s = $(id); if(!s) return;
+    s.value = value; s.dispatchEvent(new Event("change", {bubbles:true}));
+    var f = s.closest(".f"); f.classList.add("pre");
+    setTimeout(function(){ f.classList.remove("pre"); }, 2200);
+  }
+
+  /* ---------- calculadora ---------- */
+  var range = $("usd"), bars = $("bars");
+  for(var i = 0; i < 12; i++){ var b = document.createElement("div"); b.className = "bar"; b.innerHTML = "<span></span>"; bars.appendChild(b); }
+  var barEls = bars.children, chartShown = false;
+
+  function rangoMonto(v){
+    if(v < 5000) return "Menos de 5,000 USD";
+    if(v < 20000) return "5,000 a 20,000 USD";
+    if(v < 50000) return "20,000 a 50,000 USD";
+    if(v <= 100000) return "50,000 a 100,000 USD";
+    return "Más de 100,000 USD";
+  }
+  function calc(){
+    var v = +range.value;
+    var lo = v * 0.035 * 1.16, hi = v * 0.04 * 1.16;
+    range.style.setProperty("--p", ((v - range.min) / (range.max - range.min) * 100) + "%");
+    $("usdOut").textContent = usdFmt(v);
+    $("oMes").innerHTML = Math.round(lo).toLocaleString("en-US") + "–" + Math.round(hi).toLocaleString("en-US") + " <em>USD</em>";
+    $("oAno").innerHTML = Math.round(lo * 12).toLocaleString("en-US") + "–" + Math.round(hi * 12).toLocaleString("en-US") + " <em>USD</em>";
+    if(!chartShown) return;
+    var top = hi * 12, pow = Math.pow(10, Math.floor(Math.log10(top))), max = pow;
+    [1, 2, 2.5, 5, 10].some(function(k){ max = k * pow; return max >= top; });
+    $("yMax").textContent = "escala hasta " + usdFmt(max);
+    for(var m = 0; m < 12; m++){
+      var hH = hi * (m + 1) / max * 100, lH = lo * (m + 1) / max * 100;
+      barEls[m].style.height = Math.max(hH, 1.5) + "%";
+      barEls[m].firstChild.style.height = (hH ? lH / hH * 100 : 0) + "%";
+    }
+  }
+  range.addEventListener("input", calc);
+  calc();
+  onView(bars, function(){ chartShown = true;
+    Array.prototype.forEach.call(barEls, function(b, k){ b.style.transitionDelay = (k * 45) + "ms"; });
+    calc();
+    setTimeout(function(){ Array.prototype.forEach.call(barEls, function(b){ b.style.transitionDelay = "0ms"; }); }, 1400);
+  }, .15);
+  $("calcCta").addEventListener("click", function(){ preset("monto", rangoMonto(+range.value)); });
+
+  /* ---------- gráfica de liquidez ---------- */
+  onView($("liquidez"), function(){
+    document.querySelectorAll("#liquidez .fill").forEach(function(f){
+      f.style.left = f.dataset.from + "%"; f.style.width = (f.dataset.to - f.dataset.from) + "%";
+    });
+  }, .2);
+
+  /* ---------- proceso ---------- */
+  var ICO = {
+    chat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/><path d="M8 11h8M8 14h5"/></svg>',
+    sign:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6M8 17c2-2 3 1 5-1s2 0 3 0"/></svg>',
+    cash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 12h.01M18 12h.01"/></svg>',
+    doc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>'
+  };
+  var STEPS = [
+    {ic:"chat", t:"Nos dices cuánto vas a recibir y cerramos el tipo de cambio por escrito", p:"Antes de que tu cliente envíe un solo dólar, ya sabes exactamente cuántos pesos te llegan. Sin letras chicas al final.", tag:"Minutos por WhatsApp"},
+    {ic:"sign", t:"Quien te paga en Estados Unidos firma un contrato de comercialización", p:"El contrato se celebra con Proyecto Twenty Seven y documenta el origen del dinero. El pago sale respaldado, no sale suelto.", tag:"Respaldo legal en el origen"},
+    {ic:"cash", t:"Recibes tus pesos por SPEI en menos de 24 horas", p:"En cuanto se confirma el depósito en dólares o en USDT, convertimos al tipo de cambio pactado y transferimos a tu cuenta. Cero comisión por recibir y por enviar.", tag:"Menos de 24 horas"},
+    {ic:"doc", t:"Recibes tu CFDI 4.0, listo para deducir", p:"Cada operación cierra con su factura. Gasto deducible de ISR, IVA acreditable e ingreso amparado ante el SAT.", tag:"Sale con contrato, llega con factura"}
+  ];
+  var proc = $("proc"), pbtn = proc.querySelectorAll(".pstep"), pdet = $("pdetail"), cur = -1, timer = null, running = false;
+  function showStep(i){
+    cur = i;
+    pbtn.forEach(function(b, k){
+      b.classList.toggle("done", k < i); b.classList.remove("on");
+      b.setAttribute("aria-selected", k === i ? "true" : "false");
+      if(k === i){ void b.offsetWidth; b.classList.add("on"); }
+    });
+    var s = STEPS[i];
+    pdet.innerHTML = '<div class="big fade">' + ICO[s.ic] + '</div><div class="fade"><h4>' + s.t + '</h4><p>' + s.p + '</p><span class="tagline">' + s.tag + '</span></div>';
+  }
+  function schedule(){ clearTimeout(timer); if(!running) return; timer = setTimeout(function(){ showStep((cur + 1) % 4); schedule(); }, 4000); }
+  pbtn.forEach(function(b){ b.addEventListener("click", function(){ running = false; clearTimeout(timer); proc.classList.add("paused"); showStep(+b.dataset.i); pbtn[+b.dataset.i].querySelector(".ln i").style.width = "100%"; }); });
+  showStep(0);
+  onView(proc, function(){ if(reduce) return; running = true; showStep(0); schedule(); }, .3);
+  proc.addEventListener("mouseenter", function(){ if(running){ clearTimeout(timer); proc.classList.add("paused"); } });
+  proc.addEventListener("mouseleave", function(){ if(running){ proc.classList.remove("paused"); schedule(); } });
+
+  /* ---------- giro ---------- */
+  var GIROS = [
+    {k:"Turismo", form:"Turismo, DMC o agencia de viajes", ic:'<path d="M2 20h20M4 20l2-7h12l2 7M7 13l5-9 5 9"/>',
+     h:"Cobraste 10,000 USD de un grupo. Te llegaron cerca de 9,600.", p:"Con una pasarela de pago pierdes cerca de 400 USD por cada 10,000 y esperas días para pagar la nómina. Con nosotros recibes pesos en menos de 24 horas, sin comisiones y con factura.",
+     f:[["Tu cliente paga la reserva","Transferencia o USDT desde Estados Unidos"],["Firma el contrato","Con Proyecto Twenty Seven"],["Pagas nómina y proveedores","Pesos por SPEI en menos de 24 h"],["Deduces la operación","CFDI 4.0 para tu contabilidad"]]},
+    {k:"Inmobiliario", form:"Desarrollo inmobiliario o bienes raíces", ic:'<path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/>',
+     h:"Tu comprador quiere pagar el enganche en USDT. No tienes que decirle que no.", p:"El problema nunca fue la cripto: fue cómo aterrizarla en pesos y comprobarla ante el SAT. Con contrato en el origen y CFDI en el destino, el ingreso queda amparado y la obra no se detiene.",
+     f:[["El comprador envía el enganche","En dólares o en USDT"],["Firma el contrato","Con Proyecto Twenty Seven"],["Avanzas la obra","Pesos por SPEI en menos de 24 h"],["Amparas el ingreso","CFDI 4.0 ante el SAT"]]},
+    {k:"Bodas y eventos", form:"Bodas y eventos de destino", ic:'<path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z"/>',
+     h:"El anticipo entra el lunes. Tus proveedores también cobran el lunes.", p:"Un evento mueve decenas de proveedores locales que cobran en pesos ese mismo día. Sin esperar tres días a que el banco libere el dinero, y con el margen del evento intacto.",
+     f:[["La pareja paga el anticipo","Desde Estados Unidos o Canadá"],["Firma el contrato","Con Proyecto Twenty Seven"],["Pagas a tus proveedores","Pesos por SPEI en menos de 24 h"],["Cierras el evento documentado","CFDI 4.0 por la operación"]]},
+    {k:"Clínicas", form:"Clínica o servicios de salud", ic:'<path d="M12 5v14M5 12h14"/><rect x="3" y="3" width="18" height="18" rx="4"/>',
+     h:"Tu paciente paga el tratamiento desde Estados Unidos. Tú operas en pesos.", p:"Cobras tratamientos de ticket alto por adelantado y tus insumos, nómina y renta se pagan aquí. Convierte cada pago sin comisiones y con la factura que tu contador necesita.",
+     f:[["El paciente paga el tratamiento","Transferencia desde Estados Unidos"],["Firma el contrato","Con Proyecto Twenty Seven"],["Cubres insumos y nómina","Pesos por SPEI en menos de 24 h"],["Deduces la operación","CFDI 4.0 para tu contabilidad"]]},
+    {k:"Consultoría", form:"Consultoría o despacho", ic:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/>',
+     h:"Facturas servicios a clientes en Estados Unidos. Cada cobro puede llegar documentado.", p:"Tus honorarios llegan en dólares y tu operación vive en pesos. Con contrato en el origen y CFDI en el destino, cada cobro queda listo para tu contabilidad, sin perder margen en comisiones.",
+     f:[["Tu cliente paga el proyecto","Transferencia desde Estados Unidos"],["Firma el contrato","Con Proyecto Twenty Seven"],["Recibes tus honorarios","Pesos por SPEI en menos de 24 h"],["Deduces la operación","CFDI 4.0 para tu contabilidad"]]}
+  ];
+  var gsel = $("gsel"), gcase = $("gcase");
+  gsel.innerHTML = GIROS.map(function(g, i){
+    return '<button class="gbtn" role="tab" data-i="' + i + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + g.ic + '</svg>' + g.k + '</button>';
+  }).join("");
+  function showGiro(i){
+    var g = GIROS[i];
+    gsel.querySelectorAll(".gbtn").forEach(function(b, k){ b.classList.toggle("on", k === i); b.setAttribute("aria-selected", k === i ? "true" : "false"); });
+    gcase.innerHTML =
+      '<div class="card fade"><span class="eyebrow">Caso: ' + g.k.toLowerCase() + '</span><h3>' + g.h + '</h3><p>' + g.p + '</p><div class="pad"></div>' +
+      '<a href="#cotizar" class="btn btn-dark" data-giro="' + g.form + '">Cotizar para ' + g.k.toLowerCase() + ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>' +
+      '<div class="card soft fade"><span class="eyebrow">Así se ve tu operación</span><ul class="mini">' +
+      g.f.map(function(s, k){ return '<li><b>' + (k + 1) + '</b><span>' + s[0] + '<small>' + s[1] + '</small></span></li>'; }).join("") +
+      '</ul></div>';
+  }
+  gsel.addEventListener("click", function(e){ var b = e.target.closest(".gbtn"); if(b) showGiro(+b.dataset.i); });
+  gcase.addEventListener("click", function(e){ var a = e.target.closest("[data-giro]"); if(a) preset("giro", a.dataset.giro); });
+  showGiro(0);
+
+  /* ---------- protocolo de confianza ---------- */
+  var layers = $("layers").querySelectorAll(".layer"), lcur = -1, ltimer = null, lauto = true;
+  function showLayer(i){
+    lcur = i;
+    layers.forEach(function(l, k){ l.classList.toggle("on", k === i); if(k <= i) l.classList.add("ok"); });
+    var n = $("layers").querySelectorAll(".layer.ok").length;
+    $("meter").style.width = (n / 4 * 100) + "%";
+    $("meterN").textContent = n + " de 4";
+  }
+  function layerLoop(){ if(!lauto) return; ltimer = setTimeout(function(){ if(lcur < 3){ showLayer(lcur + 1); layerLoop(); } }, 1900); }
+  layers.forEach(function(l){ l.addEventListener("click", function(){ lauto = false; clearTimeout(ltimer); showLayer(+l.dataset.i); }); });
+  onView($("layers"), function(){ showLayer(0); if(!reduce) layerLoop(); else { layers.forEach(function(l){ l.classList.add("ok"); }); showLayer(3); } }, .3);
+
+  /* ---------- chat ---------- */
+  var msgs = $("chat").querySelectorAll(".msg"), typing = $("typing");
+  onView($("chat"), function(){
+    setTimeout(function(){ typing.classList.remove("show"); msgs.forEach(function(m){ m.classList.add("show"); }); }, 7000);
+    if(reduce){ msgs.forEach(function(m){ m.classList.add("show"); }); return; }
+    var k = 0;
+    (function next(){
+      if(k >= msgs.length) return;
+      var them = msgs[k].classList.contains("them");
+      if(them){ typing.classList.add("show"); msgs[k].parentNode.insertBefore(typing, msgs[k]); }
+      setTimeout(function(){
+        typing.classList.remove("show"); msgs[k].classList.add("show"); k++; setTimeout(next, 500);
+      }, them ? 1100 : 450);
+    })();
+  }, .3);
+
+  /* ---------- preferencia desde CTA de reunión ---------- */
+  document.querySelectorAll("[data-pref]").forEach(function(a){
+    a.addEventListener("click", function(){ $("p2").checked = true; });
+  });
+
+  /* ---------- envío a WhatsApp ---------- */
+  var WA = "529983016102", form = $("lead"), req = ["nombre","empresa","giro","monto","pago","ciudad"];
+  function clear(e){ var f = e.target.closest(".f"); if(f) f.classList.remove("bad"); }
+  form.addEventListener("input", clear);
+  form.addEventListener("change", clear);
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var ok = true, first = null, d = {};
+    req.forEach(function(id){
+      var el = $(id), v = el.value.trim(); d[id] = v;
+      if(!v){ ok = false; el.closest(".f").classList.add("bad"); if(!first) first = el; }
+    });
+    if(!ok){ first.focus(); return; }
+    d.pref = form.querySelector('input[name="pref"]:checked').value;
+    var msg = "Hola, quiero cotizar una operación con Twenty Seven.\n\n" +
+      "• Nombre: " + d.nombre + "\n• Empresa: " + d.empresa + "\n• Giro: " + d.giro + "\n" +
+      "• Monto mensual: " + d.monto + "\n• Cómo me pagan hoy: " + d.pago + "\n" +
+      "• Ciudad: " + d.ciudad + "\n• Prefiero: " + d.pref;
+    try{ if(window.fbq) fbq("track","Lead",{content_category:d.giro,value_range:d.monto}); }catch(_){}
+    try{ if(window.gtag) gtag("event","generate_lead",{giro:d.giro,monto:d.monto}); }catch(_){}
+    window.location.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+  });
+
+  /* ---------- barra móvil ---------- */
+  var bar = $("mbar"), card = $("cotizar");
+  if(io){ new IntersectionObserver(function(en){ bar.classList.toggle("hide", en[0].isIntersecting); },{threshold:0,rootMargin:"0px 0px -35% 0px"}).observe(card); }
+})();
+</script>
+</body>
+</html>
